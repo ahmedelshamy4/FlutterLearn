@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/get_data_with_filter/my_page.dart';
 import 'package:flutter_learn/learn_design_pattern/strategy/data/respository/fly_behavior_imp/no_fly_behavior_imp.dart';
 import 'package:flutter_learn/learn_design_pattern/strategy/data/respository/fly_behavior_imp/short_fly_behavior_imp.dart';
 import 'package:flutter_learn/learn_design_pattern/strategy/data/respository/quack_behavior_imp/quack_behavior_imp.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_learn/learn_design_pattern/strategy/data/respository/qua
 import 'package:flutter_learn/learn_design_pattern/strategy/domain/duck.dart';
 import 'package:flutter_learn/shared_preferences/cache_helper.dart';
 import 'package:flutter_learn/shared_preferences/home_page.dart';
+import 'package:flutter_learn/test_app.dart';
 
 import 'learn_design_pattern/strategy/data/respository/fly_behavior_imp/long_fly_behavior_imp.dart';
 
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home:  MyPage(),
     );
   }
 }
