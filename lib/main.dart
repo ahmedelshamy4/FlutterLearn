@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/animations%20/animation_sample.dart';
 import 'package:flutter_learn/get_data_with_filter/my_page.dart';
 import 'package:flutter_learn/learn_design_pattern/strategy/data/respository/fly_behavior_imp/no_fly_behavior_imp.dart';
 import 'package:flutter_learn/learn_design_pattern/strategy/data/respository/fly_behavior_imp/short_fly_behavior_imp.dart';
@@ -35,12 +36,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Learn',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  MyPage(),
+      home:  FadeTransitionDemo(),
     );
   }
 }
