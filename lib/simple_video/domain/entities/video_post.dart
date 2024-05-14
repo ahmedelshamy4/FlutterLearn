@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class VideoPost extends Equatable {
+class VideoPostEntity extends Equatable {
   final String videoUrl;
   final String description;
   final int likes;
   final int views;
 
-  const VideoPost({
+  const VideoPostEntity({
     required this.videoUrl,
     required this.description,
     this.likes = 0,

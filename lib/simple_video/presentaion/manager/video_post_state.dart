@@ -3,7 +3,7 @@ import 'package:flutter_learn/core/di/async.dart';
 import 'package:flutter_learn/simple_video/domain/entities/video_post.dart';
 
 class VideoPostState extends Equatable {
-  final Async<List<VideoPost>> postsState;
+  final Async<List<VideoPostEntity>> postsState;
   final String? errorMessage;
 
   const VideoPostState(
@@ -18,7 +18,7 @@ class VideoPostState extends Equatable {
         );
 
   VideoPostState reduce({
-    Async<List<VideoPost>>? postsState,
+    Async<List<VideoPostEntity>>? postsState,
     String? errorMessage,
   }) {
     return VideoPostState(

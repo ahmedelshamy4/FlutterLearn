@@ -12,13 +12,13 @@ class VideoPostCubit extends Cubit<VideoPostState> {
   }
 
   void onCubitCreated() {
-    getVideoPost(1);
+    getVideoPost();
   }
 
-  Future<void> getVideoPost(int page) async {
+  void getVideoPost() async {
     emit(state.reduce(postsState: const Async.loading()));
     try {
-      final result = await _videoPostUseCase.execute(page);
+      final result = await _videoPostUseCase.execute();
       emit(state.reduce(postsState: Async.success(result)));
     } catch (failure) {
       emit(state.reduce(

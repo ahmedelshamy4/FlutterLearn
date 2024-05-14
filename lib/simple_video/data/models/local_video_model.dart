@@ -1,5 +1,3 @@
-import 'package:flutter_learn/simple_video/domain/entities/video_post.dart';
-
 class LocalVideoModel {
   final String videoUrl;
   final String name;
@@ -19,15 +17,6 @@ class LocalVideoModel {
       name: json['name'],
       likes: json['likes'],
       views: json['views'],
-    );
-  }
-
-  VideoPost mapVideoPost() {
-    return VideoPost(
-      videoUrl: videoUrl,
-      description: name,
-      likes: likes,
-      views: views,
     );
   }
 }

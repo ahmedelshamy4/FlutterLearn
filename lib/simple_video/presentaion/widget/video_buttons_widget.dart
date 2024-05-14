@@ -4,7 +4,7 @@ import 'package:flutter_learn/simple_video/domain/entities/video_post.dart';
 import 'package:intl/intl.dart';
 
 class VideoButtonsWidget extends StatelessWidget {
-  final VideoPost video;
+  final VideoPostEntity video;
 
   const VideoButtonsWidget({
     super.key,
