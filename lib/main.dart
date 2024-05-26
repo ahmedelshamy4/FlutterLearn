@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/core/graph_ql_config.dart';
+import 'package:flutter_learn/flutter_animate/animate_page.dart';
 import 'package:flutter_learn/initialize_app_config.dart';
 import 'package:flutter_learn/learn_design_pattern/strategy/data/respository/fly_behavior_imp/fly_no_way.dart';
 import 'package:flutter_learn/learn_design_pattern/strategy/data/respository/fly_behavior_imp/fly_with_wings_imp.dart';
@@ -7,16 +8,13 @@ import 'package:flutter_learn/learn_design_pattern/strategy/data/respository/qua
 import 'package:flutter_learn/learn_design_pattern/strategy/data/respository/quack_behavior_imp/squeak_behavior.dart';
 import 'package:flutter_learn/learn_design_pattern/strategy/domain/duck.dart';
 import 'package:flutter_learn/shared_preferences/cache_helper.dart';
+import 'package:flutter_learn/simple_posts_data_with_clean_arch/ui/post_page.dart';
 import 'package:flutter_learn/simple_video/presentaion/video_scrollable_page.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await init();
-
-
-
-
 
   // Creating ducks with different behaviors
   Duck mallardDuck = Duck(
@@ -63,7 +61,7 @@ class MyApp extends StatelessWidget {
         client: clientNotifier,
         child: const CacheProvider(
           child: MaterialApp(
-            home: VideoScrollablePage()
+            home: AnimatedPage(),
           ),
         ),
       ),
