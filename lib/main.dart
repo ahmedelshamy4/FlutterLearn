@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/Game/tak_toc_game_page.dart';
 import 'package:flutter_learn/core/graph_ql_config.dart';
 import 'package:flutter_learn/flutter_animate/animate_page.dart';
 import 'package:flutter_learn/initialize_app_config.dart';
@@ -20,23 +21,24 @@ import 'learn_design_pattern/behiver_pattern/strategy/data/respository/quack_beh
 
 void main() async {
   ///About Singleton Pattern
-  print('===============================');
-  Singleton x = Singleton.getInstance();
-  Singleton y = Singleton.getInstance();
-  print('"Singleton Pattern"');
-  print('x hash code => ${x.hashCode}');
-  print('y hash code => ${y.hashCode}');
-  print('===============================');
+  // print('===============================');
+  // Singleton x = Singleton.getInstance();
+  // Singleton y = Singleton.getInstance();
+  // print('"Singleton Pattern"');
+  // print('x hash code => ${x.hashCode}');
+  // print('y hash code => ${y.hashCode}');
+  // print('===============================');
 
   ///About Adapter Pattern
-  print('===============================');
-  print('"Adapter Pattern"');
-  SalaryAdepter adepter = SalaryAdepter();
-  MachineOperator operator =
-      MachineOperator(name: "ahmed", basicSalary: 3000, shiftCode: 000);
-  print(
-      'Employee Salary after using adapter pattern is ${adepter.calculateBasicSalary(operator)}');
-  print('===============================');
+  // print('===============================');
+  // print('"Adapter Pattern"');
+  // SalaryAdepter adepter = SalaryAdepter();
+  // MachineOperator operator =
+  //     MachineOperator(name: "ahmed", basicSalary: 3000, shiftCode: 000);
+  // print(
+  //     'Employee Salary after using adapter pattern is ${adepter.calculateBasicSalary(operator)}');
+  // print('===============================');
+
   WidgetsFlutterBinding.ensureInitialized();
   await init();
 
@@ -85,7 +87,7 @@ class MyApp extends StatelessWidget {
         client: clientNotifier,
         child: const CacheProvider(
           child: MaterialApp(
-            home: AnimatedPage(),
+            home: TakTocGamePage(),
           ),
         ),
       ),

@@ -4,7 +4,6 @@ import 'package:flutter_learn/simple_posts_data_with_clean_arch/domain/entities/
 extension ConvertPostEntityToApi on ApiPostResult {
   PostEntity mapPostEntity() {
     return PostEntity(
-      userId: userId ?? 0,
       id: id ?? 0,
       title: title ?? "",
       body: body ?? "",
