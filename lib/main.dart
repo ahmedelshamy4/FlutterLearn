@@ -16,10 +16,14 @@ import 'package:flutter_learn/learn_design_pattern/creational_design_patterns/fa
 import 'package:flutter_learn/learn_design_pattern/creational_design_patterns/factory_pattern/factory_method_pattern/concrete_factory.dart';
 import 'package:flutter_learn/learn_design_pattern/creational_design_patterns/factory_pattern/factory_method_pattern/i_product.dart';
 import 'package:flutter_learn/learn_design_pattern/creational_design_patterns/singleton_pattern/singleton_pattern.dart';
+import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/%20decorator_pattern/email_notification_service_decorator.dart';
 import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/adapter_pattern/employee.dart';
 import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/adapter_pattern/machine_operator.dart';
 import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/adapter_pattern/salary_adepter.dart';
 import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/adapter_pattern/salary_calculator.dart';
+import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/proxy_pattern/proxy.dart';
+import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/proxy_pattern/sms_service.dart';
+import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/proxy_pattern/sms_service_provider.dart';
 import 'package:flutter_learn/shared_preferences/cache_helper.dart';
 import 'package:flutter_learn/simple_posts_data_with_clean_arch/ui/post_page.dart';
 import 'package:flutter_learn/simple_video/presentaion/video_scrollable_page.dart';
@@ -87,6 +91,30 @@ void main() async {
   print(bank?.discount());
   ICharity? charity = abstractFactory.createCharity(inviteCode: '111');
   print(charity?.fundraising());
+  print('===============================');
+
+  ///About Proxy Pattern
+  print('===============================');
+  print('"Proxy Pattern"');
+  //In Proxy we prevent calling sendSms method directly from smsServiceProvider object.
+  final SmsService service = SmsServiceProxy();
+  for (int i = 0; i < 7; i++) {
+    print(service.sendSms(
+      clientId: 1,
+      mobileNumber: '1111111111111',
+      smsMessage: 'Hello, this is a test message! ',
+    ));
+  }
+  ///About Decorator Pattern
+  print('===============================');
+  print('"Decorator Pattern"');
+
+  SmsService smsServiceProvider = SmsServiceProvider();
+  EmailNotificationServiceDetector emailNotificationServiceDetector =
+  EmailNotificationServiceDetector();
+  emailNotificationServiceDetector.setService(smsServiceProvider);
+  print(emailNotificationServiceDetector.sendSms(
+      clientId: 1, mobileNumber: '0133333333', smsMessage: 'New Email SMS'));
   print('===============================');
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();

@@ -11,7 +11,7 @@ class AntiPattern {
 
   void checkProduct() {
     print('Enter your condition here: ');
-    condition = stdin.readLineSync()!.substring(0, 3);
+    condition = stdin.readLineSync()?.substring(0, 3)??'';
     switch (condition) {
       case '123':
         print(productA.doSomething());
