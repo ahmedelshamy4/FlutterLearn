@@ -2,4 +2,5 @@ import 'package:flutter_learn/simple_posts_data_with_clean_arch/domain/entities/
 
 abstract class PostsRepositories {
   Future<List<PostEntity>> getAllPosts();
+  Future<void> createPost(PostEntity post);
 }
