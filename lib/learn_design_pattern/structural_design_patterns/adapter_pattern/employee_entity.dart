@@ -1,8 +1,8 @@
-class Employee {
+class EmployeeEntity {
   final String name;
   double basicSalary;
 
-  Employee({
+  EmployeeEntity({
     required this.name,
     required this.basicSalary,
   });

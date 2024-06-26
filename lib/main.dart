@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_learn/Game/tak_toc_game_page.dart';
 import 'package:flutter_learn/core/graph_ql_config.dart';
 import 'package:flutter_learn/flutter_animate/animate_page.dart';
@@ -25,8 +26,7 @@ import 'package:flutter_learn/learn_design_pattern/creational_design_patterns/pr
 import 'package:flutter_learn/learn_design_pattern/creational_design_patterns/prototype_pattern/regular_employee.dart';
 import 'package:flutter_learn/learn_design_pattern/creational_design_patterns/singleton_pattern/singleton_pattern.dart';
 import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/%20decorator_pattern/email_notification_service_decorator.dart';
-import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/adapter_pattern/employee.dart';
-import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/adapter_pattern/machine_operator.dart';
+import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/adapter_pattern/machine_operator_entity.dart';
 import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/adapter_pattern/salary_adepter.dart';
 import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/adapter_pattern/salary_calculator.dart';
 import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/proxy_pattern/proxy.dart';
@@ -35,6 +35,8 @@ import 'package:flutter_learn/learn_design_pattern/structural_design_patterns/pr
 import 'package:flutter_learn/shared_preferences/cache_helper.dart';
 import 'package:flutter_learn/simple_posts_data_with_clean_arch/ui/post_page.dart';
 import 'package:flutter_learn/simple_video/presentaion/video_scrollable_page.dart';
+import 'package:flutter_learn/timer_page/timer_cubit.dart';
+import 'package:flutter_learn/timer_page/timer_page.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import 'learn_design_pattern/behiver_pattern/strategy/data/respository/quack_behavior_imp/squeak_behavior.dart';
@@ -120,14 +122,17 @@ void main() async {
   print('===============================');
 
   ///About Adapter Pattern
-  // print('===============================');
-  // print('"Adapter Pattern"');
-  // SalaryAdepter adepter = SalaryAdepter();
-  // MachineOperator operator =
-  //     MachineOperator(name: "ahmed", basicSalary: 3000, shiftCode: 000);
-  // print(
-  //     'Employee Salary after using adapter pattern is ${adepter.calculateBasicSalary(operator)}');
-  // print('===============================');
+  print('===============================');
+  print('"Adapter Pattern"');
+  SalaryAdepter adepter = SalaryAdepter();
+  //After using adapter pattern you can't need to create 2 objects from employee and operator
+  // because if you want to calculate employee you go to initialize employee
+  // and the same thing is occurred when you want to calculate operator.
+  MachineOperatorEntity operator =
+      MachineOperatorEntity(name: "ahmed", basicSalary: 3000, shiftCode: 000);
+  print(
+      'Employee Salary after using adapter pattern is ${adepter.calculateBasicSalary(operator)}');
+  print('===============================');
 
   WidgetsFlutterBinding.ensureInitialized();
   await init();
