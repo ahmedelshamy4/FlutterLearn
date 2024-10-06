@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_learn/Game/tak_toc_game_page.dart';
@@ -10,6 +11,13 @@ import 'package:flutter_learn/learn_design_pattern/behiver_pattern/strategy/data
 import 'package:flutter_learn/learn_design_pattern/behiver_pattern/strategy/data/respository/fly_behavior_imp/fly_with_wings_imp.dart';
 import 'package:flutter_learn/learn_design_pattern/behiver_pattern/strategy/data/respository/quack_behavior_imp/quack_behavior_imp.dart';
 import 'package:flutter_learn/learn_design_pattern/behiver_pattern/strategy/domain/duck.dart';
+import 'package:flutter_learn/learn_design_pattern/behiver_pattern/strategy_2/strategy_example.dart';
+import 'package:flutter_learn/learn_design_pattern/behiver_pattern/visitor/animal.dart';
+import 'package:flutter_learn/learn_design_pattern/behiver_pattern/visitor/animal_visitor.dart';
+import 'package:flutter_learn/learn_design_pattern/behiver_pattern/visitor/elephant.dart';
+import 'package:flutter_learn/learn_design_pattern/behiver_pattern/visitor/giraffe.dart';
+import 'package:flutter_learn/learn_design_pattern/behiver_pattern/visitor/loin.dart';
+import 'package:flutter_learn/learn_design_pattern/behiver_pattern/visitor/weigth_calculate_visitor.dart';
 import 'package:flutter_learn/learn_design_pattern/creational_design_patterns/builder_pattern/car_product.dart';
 import 'package:flutter_learn/learn_design_pattern/creational_design_patterns/builder_pattern/director.dart';
 import 'package:flutter_learn/learn_design_pattern/creational_design_patterns/builder_pattern/i_builder.dart';
@@ -42,6 +50,11 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'learn_design_pattern/behiver_pattern/strategy/data/respository/quack_behavior_imp/squeak_behavior.dart';
 
 void main() async {
+  List<Animal> animals = [Loin(), Elephant(), Giraffe()];
+  AnimalVisitor animalVisitor=WeightCalculateVisitor();
+  for (var animal in animals) {
+    animal.accept(animalVisitor);
+  }
   print('design_patterns_with_dart');
 
   ///About Singleton Pattern
@@ -206,7 +219,7 @@ class MyApp extends StatelessWidget {
         client: clientNotifier,
         child: const CacheProvider(
           child: MaterialApp(
-            home: TextRecognitionPage(),
+            home: SizedBox(),
           ),
         ),
       ),
